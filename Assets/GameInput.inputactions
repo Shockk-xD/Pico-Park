@@ -1,0 +1,106 @@
+{
+    "name": "GameInput",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "15204f10-74ef-4c61-b777-7c5e4f50fd84",
+            "actions": [
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "840e8f67-5950-4047-8f39-0033f62122b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e395fad3-3708-4767-99fe-fe73377719bf",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc313fa3-13d7-42fa-b2ef-5492f30dcbb7",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46b52807-69ea-4629-9eed-66870cad57cc",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mobile",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI -> RoomPage",
+            "id": "1358f4f3-bfd2-444c-bf55-46cffa1f84e1",
+            "actions": [
+                {
+                    "name": "SendChatMessage",
+                    "type": "Button",
+                    "id": "23ece445-fa05-48ca-8ca5-5b413faf8a58",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "93b5d167-a66c-4c69-80a3-3083f4ab8d47",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "SendChatMessage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "PC",
+            "bindingGroup": "PC",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Mobile",
+            "bindingGroup": "Mobile",
+            "devices": []
+        }
+    ]
+}
