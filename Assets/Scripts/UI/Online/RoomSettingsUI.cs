@@ -16,6 +16,7 @@ public class RoomSettingsUI : MonoBehaviour
 
     private string _playerNickname;
     private int _maxPlayersCount;
+    private string _defaultRoomName;
 
     private void Awake() {
         _maxPlayersCount = _roomPreferences.MinPlayerCount;
@@ -23,8 +24,10 @@ public class RoomSettingsUI : MonoBehaviour
     }
 
     private void OnEnable() {
+        GameLocalization.Changed += RefreshLocalizedText;
         _playerNickname = PlayerNicknameStorageService.PlayerNickname;
         SetRoomDefaultName();
+        SetPlayersCountText();
         _createRoomButton.interactable = true;
         _roomPreferences.IsHost = true;
 
@@ -35,6 +38,7 @@ public class RoomSettingsUI : MonoBehaviour
     }
 
     private void OnDisable() {
+        GameLocalization.Changed -= RefreshLocalizedText;
         _roomNameInputField.onEndEdit.RemoveListener(OnRoomNameEndEditHandler);
         _increasePlayersCountButton.onClick.RemoveListener(IncreasePlayersCount);
         _decreasePlayersCountButton.onClick.RemoveListener(DecreasePlayersCount);
@@ -48,14 +52,21 @@ public class RoomSettingsUI : MonoBehaviour
     }
 
     private void SetRoomDefaultName() {
-        var defaultName = _roomPreferences.DefaultName;
-        var roomName = string.Format(defaultName, _playerNickname);
-        _roomNameInputField.text = roomName;
+        _defaultRoomName = GameLocalization.Get("lobby.roomNameDefault", _playerNickname)
+            ?? string.Format(_roomPreferences.DefaultName, _playerNickname);
+        _roomNameInputField.text = _defaultRoomName;
     }
 
     private void SetPlayersCountText() {
-        var prefix = "Кол-во игроков: ";
-        _playersCountText.text = prefix + _maxPlayersCount;
+        _playersCountText.text = GameLocalization.Get("lobby.maxPlayers", _maxPlayersCount)
+            ?? _maxPlayersCount.ToString();
+    }
+
+    private void RefreshLocalizedText() {
+        SetPlayersCountText();
+        if (_roomNameInputField.text == _defaultRoomName) {
+            SetRoomDefaultName();
+        }
     }
 
     private void IncreasePlayersCount() {
@@ -73,14 +84,16 @@ public class RoomSettingsUI : MonoBehaviour
     }
 
     private void CreateRoom() {
-        _createRoomButton.interactable = false;
-
         RoomOptions roomOptions = new() {
             IsVisible = !_isPrivateGameToggle.isOn,
             IsOpen = true,
             MaxPlayers = _maxPlayersCount
         };
 
-        _roomManager.CreateRoom(_roomNameInputField.text, roomOptions);
+        if (_roomManager.CreateRoom(_roomNameInputField.text, roomOptions)) {
+            _createRoomButton.interactable = false;
+        } else {
+            GameAudio.Play(GameAudio.Cue.Error);
+        }
     }
 }

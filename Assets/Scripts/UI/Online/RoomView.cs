@@ -5,7 +5,9 @@ using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 [RequireComponent(typeof(PhotonView))]
 public class RoomView : MonoBehaviour {
@@ -34,39 +36,50 @@ public class RoomView : MonoBehaviour {
     private Room CurrentRoom => PhotonNetwork.CurrentRoom;
     private List<LevelData> Levels => _levelsContainer.Levels;
     private int _currentLevel = 0;
+    private bool _isStarting;
+    private bool _isLoadingScene;
     private PhotonView _photonView;
+    private SceneLoader _sceneLoader;
+
+    [Inject]
+    private void Construct(SceneLoader sceneLoader) {
+        _sceneLoader = sceneLoader;
+    }
 
     private void Awake() {
         _photonView = GetComponent<PhotonView>();
     }
 
     private void OnEnable() {
-        Init();
+        _isStarting = false;
+        _isLoadingScene = false;
+        GameLocalization.Changed += RefreshLocalizedText;
+        RefreshLocalizedText();
         _nextLevelButton.onClick.AddListener(SetNextLevel);
         _previousLevelButton.onClick.AddListener(SetPreviousLevel);
-        _startGameButton.onClick.AddListener(StartGame);
+        _startGameButton.onClick.AddListener(StartGameButtonClicked);
         _roomManager.OnPlayerEntered += OnPlayerEnteredRoom;
         _roomManager.OnPlayerLeft += OnPlayerLeftRoom;
 
-        if (PhotonNetwork.IsMasterClient) {
-            SetCurrentLevelView(_currentLevel);
-        }
+        SetCurrentLevelView(_currentLevel);
     }
 
     private void OnDisable() {
+        GameLocalization.Changed -= RefreshLocalizedText;
         _nextLevelButton.onClick.RemoveListener(SetNextLevel);
         _previousLevelButton.onClick.RemoveListener(SetPreviousLevel);
-        _startGameButton.onClick.AddListener(StartGame);
+        _startGameButton.onClick.RemoveListener(StartGameButtonClicked);
         _roomManager.OnPlayerEntered -= OnPlayerEnteredRoom;
         _roomManager.OnPlayerLeft -= OnPlayerLeftRoom;
     }
 
-    private void Init() {
+    private void RefreshLocalizedText() {
+        SetCurrentLevelText(_currentLevel);
         if (CurrentRoom == null) {
             return;
         }
 
-        _roomIdText.text = $"Код комнаты: {CurrentRoom.Name}";
+        _roomIdText.text = GameLocalization.Get("lobby.roomCodeValue", CurrentRoom.Name) ?? CurrentRoom.Name;
         UpdatePlayerCountText();
     }
 
@@ -87,16 +100,25 @@ public class RoomView : MonoBehaviour {
             return;
         }
 
-        _playerCountText.text = $"Игроков зашло: {CurrentRoom.PlayerCount} / {CurrentRoom.MaxPlayers}";
+        _playerCountText.text = GameLocalization.Get("lobby.roomPlayers", CurrentRoom.PlayerCount, CurrentRoom.MaxPlayers)
+            ?? $"{CurrentRoom.PlayerCount} / {CurrentRoom.MaxPlayers}";
     }
 
     private void SetNextLevel() {
+        if (!PhotonNetwork.IsMasterClient || _isStarting) {
+            return;
+        }
+
         var maxLevel = Levels.Count - 1;
         _currentLevel = MathfExtensions.NumberLoop(_currentLevel + 1, 0, maxLevel);
         _photonView.RPC(nameof(SetCurrentLevelView), RpcTarget.All, _currentLevel);
     }
 
     private void SetPreviousLevel() {
+        if (!PhotonNetwork.IsMasterClient || _isStarting) {
+            return;
+        }
+
         var maxLevel = Levels.Count - 1;
         _currentLevel = MathfExtensions.NumberLoop(_currentLevel - 1, 0, maxLevel);
         _photonView.RPC(nameof(SetCurrentLevelView), RpcTarget.All, _currentLevel);
@@ -104,6 +126,7 @@ public class RoomView : MonoBehaviour {
 
     [PunRPC]
     private void SetCurrentLevelView(int currentLevel) {
+        _currentLevel = currentLevel;
         SetLevelPreviews(currentLevel);
         SetCurrentLevelText(currentLevel);
     }
@@ -119,18 +142,45 @@ public class RoomView : MonoBehaviour {
     }
 
     private void SetCurrentLevelText(int currentLevel) {
-        _currentLevelText.text = "Уровень: " + currentLevel.ToString("000");
+        var levelId = Levels[currentLevel].LevelId;
+        _currentLevelText.text = GameLocalization.Get("lobby.level", levelId) ?? levelId.ToString("000");
     }
 
-    private void StartGame() {
-        if (CurrentRoom.PlayerCount > 1) {
-
-        } else {
-            NotEnoughPlayersToStartAnimation();
+    private void StartGameButtonClicked() {
+        if (!PhotonNetwork.IsMasterClient || CurrentRoom == null || _isStarting) {
+            return;
         }
+
+        if (CurrentRoom.PlayerCount != CurrentRoom.MaxPlayers) {
+            NotEnoughPlayersToStartAnimation();
+            return;
+        }
+
+        var sceneId = Levels[_currentLevel].SceneId;
+        if (sceneId < 0 || sceneId >= SceneManager.sceneCountInBuildSettings) {
+            GameAudio.Play(GameAudio.Cue.Error);
+            Debug.LogWarning($"Scene for level {Levels[_currentLevel].LevelId} is missing from build settings.");
+            return;
+        }
+
+        _isStarting = true;
+        _roomManager.CloseRoomForMatch();
+        _photonView.RPC(nameof(StartGame), RpcTarget.AllViaServer, sceneId);
+    }
+
+    [PunRPC]
+    private void StartGame(int sceneId, PhotonMessageInfo messageInfo) {
+        if (_isLoadingScene || !messageInfo.Sender.IsMasterClient) {
+            return;
+        }
+
+        _isStarting = true;
+        _isLoadingScene = true;
+        _sceneLoader.LoadScene(sceneId, pauseNetworkMessages: true);
     }
 
     private void NotEnoughPlayersToStartAnimation() {
+        GameAudio.Play(GameAudio.Cue.Error);
         const float animationDuration = 0.5f;
         var originColor = new Color(37 / 100, 37 / 100, 37 / 100); 
 

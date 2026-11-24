@@ -1,0 +1,237 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Game_kaa
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: kaa
+  m_SharedData: {fileID: 11400000, guid: f23ae49ba491b7744874e7cc553590ad, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2017988608
+    m_Localized: "Qos\u0131l\u0131p at\u0131r..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2072514560
+    m_Localized: "Lakap at\u0131\u0144\u0131zd\u0131 kiriti\u0144"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2076708864
+    m_Localized: "Dawam etiw ush\u0131n bas\u0131\u0144"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2076708865
+    m_Localized: "Oy\u0131nd\u0131 baslaw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903168
+    m_Localized: "Oy\u0131n jarat\u0131w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903169
+    m_Localized: "Oy\u0131n\u01F5a qos\u0131l\u0131w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903170
+    m_Localized: Sazlawlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903171
+    m_Localized: "D\xFAkan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903172
+    m_Localized: "Sh\u0131\u01F5\u0131w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903173
+    m_Localized: Artqa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903174
+    m_Localized: "Qollan\u0131w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903175
+    m_Localized: "Ekran \xF3lshemi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903176
+    m_Localized: Ekran rejimi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903177
+    m_Localized: "Tol\u0131q ekran"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903178
+    m_Localized: Aynada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903179
+    m_Localized: Til
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903180
+    m_Localized: "Menyu daw\u0131s\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903181
+    m_Localized: "Oy\u0131n daw\u0131s\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903182
+    m_Localized: "Onlayn (2-4 oy\u0131nsh\u0131)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903183
+    m_Localized: "Jergilikli oy\u0131n (2 oy\u0131nsh\u0131)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903184
+    m_Localized: "Ash\u0131q b\xF3lmeler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903185
+    m_Localized: "B\xF3lme at\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903186
+    m_Localized: "Lobbi jarat\u0131w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903187
+    m_Localized: "B\xF3lme kod\u0131n kiriti\u0144"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903188
+    m_Localized: "B\xF3lme kod\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903189
+    m_Localized: "\xC1zirge b\xF3lmeler joq. Dos\u0131\u0144\u0131z jab\u0131q b\xF3lme
+      ashqan bolsa, kod\u0131n kiriti\u0144."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903190
+    m_Localized: Kiriw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395095576576
+    m_Localized: "Kod arqal\u0131 kiriw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395150102528
+    m_Localized: "B\xF3lme jarat\u0131w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395150102529
+    m_Localized: "Bas\u0131p k\xF3ri\u0144"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395150102530
+    m_Localized: "Jaqs\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903191
+    m_Localized: "B\xF3lme sazlawlar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903192
+    m_Localized: "Jab\u0131q oy\u0131n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903193
+    m_Localized: "{0} b\xF3lmesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903194
+    m_Localized: "B\xF3lme kod\u0131: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903195
+    m_Localized: "Oy\u0131nsh\u0131lar: {0} / {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903196
+    m_Localized: "Oy\u0131nsh\u0131lar san\u0131: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903197
+    m_Localized: "B\xF3lmege kirip bolmad\u0131. Kodt\u0131 tekserip, qayta ur\u0131n\u0131p
+      k\xF3ri\u0144."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903198
+    m_Localized: "B\xF3lme tab\u0131lmad\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903199
+    m_Localized: "B\xF3lme tol\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903200
+    m_Localized: "B\xF3lme jab\u0131q."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903201
+    m_Localized: "Basq\u0131sh: {0:000}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903202
+    m_Localized: "Xabar jaz\u0131\u0144..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903203
+    m_Localized: "J\xFAklenip at\u0131r..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903204
+    m_Localized: "Gilt taslaw ush\u0131n {0} t\xFAymesin bas\u0131\u0144"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1001
+    m_Localized: "\xDAzilis"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1002
+    m_Localized: Dawam etiw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003
+    m_Localized: "Basq\u0131sht\u0131 qayta baslaw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1004
+    m_Localized: "Menyu\u01F5a qayt\u0131w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1005
+    m_Localized: "1-oy\u0131nsh\u0131\nA / D \u2014 J\u00fariw   W \u2014 Sekiriw\nE \u2014 H\u00e1reket   Q \u2014 Gilt taslaw\nF \u2014 Belgi\n\n2-oy\u0131nsh\u0131\n\u2190 / \u2192 \u2014 J\u00fariw   \u2191 \u2014 Sekiriw\n\u2193 \u2014 H\u00e1reket   O\u0144 Ctrl \u2014 Gilt taslaw\nO\u0144 Shift \u2014 Belgi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1006
+    m_Localized: "A / D yamasa \u2190 / \u2192 \u2014 J\u00fariw\nProbel \u2014 Sekiriw   E \u2014 H\u00e1reket\nQ \u2014 Gilt taslaw   Esc \u2014 Menyu\nF \u2014 Belgi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1007
+    m_Localized: "Barl\u0131q basq\u0131shlar tamamland\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1008
+    m_Localized: "Meny\u00fage qayt\u0131w"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

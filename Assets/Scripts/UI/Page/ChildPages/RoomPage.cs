@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,6 @@ public class RoomPage : BasePage
     [SerializeField] private RoomManager _roomManager;
     [SerializeField] private GameObject _hostState;
     [SerializeField] private GameObject _guestState;
-    [SerializeField] private RoomPreferences _roomPreferences;
 
     private void OnEnable() {
         _returnButton.onClick.AddListener(Return);
@@ -30,10 +30,8 @@ public class RoomPage : BasePage
         HidePage();
     }
 
-    private void SetRoomState() {
-        var isHost = _roomPreferences.IsHost;
-
-        if (isHost) {
+    public void SetRoomState() {
+        if (PhotonNetwork.IsMasterClient) {
             SetHostState();
         } else {
             SetGuestState();

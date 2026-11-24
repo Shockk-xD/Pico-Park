@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using Photon.Pun;
 using UnityEngine;
 using Zenject;
 
@@ -20,13 +19,14 @@ public class Bootstrap : MonoBehaviour
         _sceneLoader = sceneLoader;
     }
 
-    public async void OnConnectedHandler() {
+    private async void Start() {
         _ui.OpenUserResponsePage();
         await WaitForPlayerResponse();
     }
 
     private async UniTask WaitForPlayerResponse() {
         await WaitForTap();
+        GameAudio.Play(GameAudio.Cue.Click);
         _ui.OpenDoor();
 
         if (IsPlayerNicknameSet()) {

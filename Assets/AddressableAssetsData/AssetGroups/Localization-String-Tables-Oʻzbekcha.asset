@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: "Localization-String-Tables-O\u02BBzbekcha"
+  m_EditorClassIdentifier: 
+  m_GroupName: "Localization-String-Tables-O\u02BBzbekcha"
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8a1ca3e2b5de8d64489e3bc1f2a4a836
+  m_SerializeEntries:
+  - m_GUID: d479a3b6089e331409fb3d11d3397cff
+    m_Address: Game_uz
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-uz
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 8ec55421ca41ac74d93fb67168d64912, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ed988344efe88c04195279e439cfa257, type: 2}
+    - {fileID: 11400000, guid: 2cdeeb56849a5ad4c8024af6f6e76c12, type: 2}

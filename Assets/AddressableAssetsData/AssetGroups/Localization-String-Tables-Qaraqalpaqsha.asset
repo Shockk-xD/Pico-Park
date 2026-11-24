@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Qaraqalpaqsha
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Qaraqalpaqsha
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 92291a09804402840a4fcf0cd6e02954
+  m_SerializeEntries:
+  - m_GUID: c76e606d61c6a7b4e9ffed05c43c755f
+    m_Address: Game_kaa
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-kaa
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 8ec55421ca41ac74d93fb67168d64912, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a20f8798e118c0e4ea45492df7b29e68, type: 2}
+    - {fileID: 11400000, guid: fa4ee7c358f73a342bf871f139c33e6e, type: 2}

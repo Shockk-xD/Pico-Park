@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,9 +16,20 @@ public class SceneLoader : MonoBehaviour
         _sceneLoadingView = new SceneLoadingView(_blockoutImage, _loadingText);
     }
 
-    public async void LoadScene(int sceneIndex) {
-        await _sceneLoadingView.FadeIn();
-        await SceneManager.LoadSceneAsync(sceneIndex).ToUniTask();
+    public async void LoadScene(int sceneIndex, bool pauseNetworkMessages = false) {
+        if (pauseNetworkMessages) {
+            PhotonNetwork.IsMessageQueueRunning = false;
+        }
+
+        try {
+            await _sceneLoadingView.FadeIn();
+            await SceneManager.LoadSceneAsync(sceneIndex).ToUniTask();
+        } finally {
+            if (pauseNetworkMessages) {
+                PhotonNetwork.IsMessageQueueRunning = true;
+            }
+        }
+
         await _sceneLoadingView.FadeOut();
     }
 }

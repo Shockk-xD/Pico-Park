@@ -1,3 +1,4 @@
+using Photon.Realtime;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -22,7 +23,10 @@ public class RoomsListPage : BasePage
     [SerializeField] private RoomManager _roomManager;
     [SerializeField] private TMP_Text _inputRoomCodeText;
 
+    private string _joinFailureKey;
+
     private void OnEnable() {
+        GameLocalization.Changed += RefreshJoinFailure;
         _returnButton.onClick.AddListener(Return);
         _joinButton.onClick.AddListener(JoinByCode);
         _roomCodeInput.onEndEdit.AddListener(OnRoomCodeEndEditHandler);
@@ -30,6 +34,7 @@ public class RoomsListPage : BasePage
     }
 
     private void OnDisable() {
+        GameLocalization.Changed -= RefreshJoinFailure;
         _returnButton.onClick.RemoveListener(Return);
         _joinButton.onClick.RemoveListener(JoinByCode);
         _roomCodeInput.onEndEdit.RemoveListener(OnRoomCodeEndEditHandler);
@@ -41,9 +46,22 @@ public class RoomsListPage : BasePage
         _noRoomsState.SetActive(isNoRoomsState);
     }
 
-    public void OnJoinRoomFailedHandler(string message) {
+    public void OnJoinRoomFailedHandler(short returnCode) {
+        _joinFailureKey = returnCode switch {
+            ErrorCode.GameDoesNotExist => "lobby.roomMissing",
+            ErrorCode.GameFull => "lobby.roomFull",
+            ErrorCode.GameClosed => "lobby.roomClosed",
+            _ => "lobby.joinFailed"
+        };
+        RefreshJoinFailure();
+        GameAudio.Play(GameAudio.Cue.Error);
         _joinRoomFailedMessageBox.ShowPage();
-        _joinRoomFailedText.text = $"Не удалось зайти в комнату. Ошибка: {message}";
+    }
+
+    private void RefreshJoinFailure() {
+        if (_joinFailureKey != null) {
+            _joinRoomFailedText.text = GameLocalization.Get(_joinFailureKey) ?? _joinRoomFailedText.text;
+        }
     }
 
     private void Return() {
@@ -66,6 +84,7 @@ public class RoomsListPage : BasePage
     }
 
     private async void InputRoomCodeError() {
+        GameAudio.Play(GameAudio.Cue.Error);
         var animationDuration = 0.3f;
         var startColor = _inputRoomCodeText.color;
 

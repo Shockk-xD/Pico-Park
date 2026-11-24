@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Game Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Game
+  m_TableCollectionNameGuidString: f23ae49ba491b7744874e7cc553590ad
+  m_Entries:
+  - m_Id: 2017988608
+    m_Key: boot.connecting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2072514560
+    m_Key: boot.nickname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2076708864
+    m_Key: boot.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2076708865
+    m_Key: menu.start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903168
+    m_Key: menu.create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903169
+    m_Key: menu.join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903170
+    m_Key: menu.settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903171
+    m_Key: menu.shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903172
+    m_Key: menu.exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903173
+    m_Key: ui.back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903174
+    m_Key: ui.apply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903175
+    m_Key: settings.resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903176
+    m_Key: settings.display
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903177
+    m_Key: settings.fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903178
+    m_Key: settings.windowed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903179
+    m_Key: settings.language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903180
+    m_Key: settings.uiVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903181
+    m_Key: settings.effectsVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903182
+    m_Key: lobby.online
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903183
+    m_Key: lobby.local
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903184
+    m_Key: lobby.available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903185
+    m_Key: lobby.roomName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903186
+    m_Key: lobby.create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903187
+    m_Key: lobby.enterCode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903188
+    m_Key: lobby.roomCode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903189
+    m_Key: lobby.empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903190
+    m_Key: lobby.joinRoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903191
+    m_Key: lobby.settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903192
+    m_Key: lobby.private
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903193
+    m_Key: lobby.roomNameDefault
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903194
+    m_Key: lobby.roomCodeValue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903195
+    m_Key: lobby.roomPlayers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903196
+    m_Key: lobby.maxPlayers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903197
+    m_Key: lobby.joinFailed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903198
+    m_Key: lobby.roomMissing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903199
+    m_Key: lobby.roomFull
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903200
+    m_Key: lobby.roomClosed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903201
+    m_Key: lobby.level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903202
+    m_Key: chat.placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903203
+    m_Key: game.loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080903204
+    m_Key: game.dropKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395095576576
+    m_Key: lobby.joinByCode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395150102528
+    m_Key: lobby.createRoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395150102529
+    m_Key: lobby.guestButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395150102530
+    m_Key: ui.ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1001
+    m_Key: menu.pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1002
+    m_Key: menu.resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1003
+    m_Key: menu.restartLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1004
+    m_Key: menu.exitToMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1005
+    m_Key: menu.localControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1006
+    m_Key: menu.onlineControls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1007
+    m_Key: menu.allLevelsCleared
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1008
+    m_Key: menu.backToMainMenu
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2072855938997682200
+  references:
+    version: 2
+    RefIds:
+    - rid: 2072855938997682200
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1795477026548

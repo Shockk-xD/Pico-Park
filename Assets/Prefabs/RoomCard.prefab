@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 1903685732871662805}
   - component: {fileID: 2918270329028559363}
   - component: {fileID: 5829025628483856609}
+  - component: {fileID: 2010000024}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -830,3 +831,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 3
   m_AspectRatio: 0.9431818
+--- !u!114 &2010000024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070492270073975011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efef041b66f44eb783efc72781cd6a7e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _key: lobby.joinRoom
+  _label: {fileID: 5829025628483856609}

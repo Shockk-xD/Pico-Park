@@ -13,8 +13,18 @@ public class RoomsList : MonoBehaviourPunCallbacks
 
     private new void OnEnable() {
         base.OnEnable();
-        PhotonNetwork.JoinLobby();
+        if (PhotonNetwork.IsConnectedAndReady && !PhotonNetwork.InLobby && !PhotonNetwork.InRoom) {
+            PhotonNetwork.JoinLobby();
+        } else {
+            RoomManager.EnsureOnlineConnection();
+        }
         _roomPreferences.IsHost = false;
+    }
+
+    public override void OnConnectedToMaster() {
+        if (!PhotonNetwork.InLobby) {
+            PhotonNetwork.JoinLobby();
+        }
     }
 
     private new void OnDisable() {
@@ -51,6 +61,6 @@ public class RoomsList : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message) {
-        _roomsListPage.OnJoinRoomFailedHandler(message);
+        _roomsListPage.OnJoinRoomFailedHandler(returnCode);
     }
 }
