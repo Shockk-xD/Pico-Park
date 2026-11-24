@@ -34,19 +34,13 @@ An unofficial Unity learning project inspired by PICO PARK. Players work togethe
 
 Local play does not require a Photon connection. Online play requires a configured Photon PUN app.
 
-<!--
-Add your screenshots to docs/screenshots/, then uncomment and update this gallery to match your filenames.
-
 ## Screenshots
 
-| Main menu | Local co-op |
-| --- | --- |
-| ![Main menu](docs/screenshots/01-main-menu.png) | ![Local co-op](docs/screenshots/02-local-coop.png) |
+![Game screenshot 1](docs/screenshots/Screenshot_1.png)
 
-| Online lobby | Gameplay |
-| --- | --- |
-| ![Online lobby](docs/screenshots/03-online-lobby.png) | ![Gameplay](docs/screenshots/04-gameplay.png) |
--->
+![Game screenshot 2](docs/screenshots/Screenshot_2.png)
+
+![Game screenshot 3](docs/screenshots/Screenshot_3.png)
 
 ## Credits
 
